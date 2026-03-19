@@ -94,26 +94,29 @@ export default function Home() {
   return (
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
-      <section className="relative min-h-[90vh] flex items-end overflow-hidden">
-        {/* Layer 1: Video — full cover */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover object-center z-0 hidden md:block"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div className="md:hidden absolute inset-0 z-0 bg-morena-dark flex items-center justify-center">
-          <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
+      {/* Part 1: Video — object-fit contain, no cropping, full logo visible */}
+      <section className="bg-morena-dark">
+        <div className="w-full">
+          <video
+            className="hidden md:block w-full h-auto max-h-[70vh] object-contain bg-morena-dark mx-auto"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+          {/* Mobile fallback */}
+          <div className="md:hidden flex items-center justify-center h-[40vh] bg-morena-dark">
+            <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
+          </div>
         </div>
+      </section>
 
-        {/* Layer 2: Single gradient overlay */}
-        <div className="absolute inset-0 z-[1]" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%)" }} />
-
-        {/* Sparkles */}
-        <div className="absolute inset-0 z-[2]">
+      {/* Part 2: Hero text — below video, dark bg, centered */}
+      <section className="relative bg-morena-dark py-16 sm:py-24 px-4 overflow-hidden">
+        {/* Sparkles overlay on text section */}
+        <div className="absolute inset-0 z-0">
           <SparklesCore
             background="transparent"
             minSize={0.4}
@@ -125,30 +128,21 @@ export default function Home() {
           />
         </div>
 
-        {/* Layer 3: Text with text-shadow */}
-        <div className="relative z-10 w-full p-8 md:p-16">
-          <p
-            className="text-morena-gold font-body text-xs sm:text-sm uppercase tracking-[0.3em] mb-4"
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9)" }}
-          >
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <p className="text-morena-gold font-body text-xs sm:text-sm uppercase tracking-[0.3em] mb-4">
             Authentic Mexican Candy
           </p>
-          <h1
-            className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-5"
-            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.7)" }}
-          >
+          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6">
             Dulcería
             <br />
             <span className="text-morena-gold">La Morena</span>
           </h1>
-          <p
-            className="text-neutral-200 font-body text-lg sm:text-xl max-w-xl mb-8 leading-relaxed"
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9)" }}
-          >
+          <p className="text-neutral-300 font-body text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             A family-owned heritage brand bringing you the finest traditional
             Mexican dulces — from mazapán to cajeta, tamarindo to chamoy.
+            Taste the tradition.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/products">
               <ShimmerButton
                 shimmerColor="#C5A55A"
@@ -259,14 +253,20 @@ export default function Home() {
             </Link>
           </div>
           <div className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-morena-red/20 via-morena-surface to-morena-dark border border-morena-surface overflow-hidden flex items-center justify-center">
-              <div className="text-center p-8">
-                <span className="font-heading text-8xl text-morena-gold/20">
-                  LM
-                </span>
-                <p className="text-neutral-500 text-xs mt-4 uppercase tracking-widest">
-                  Photo placeholder
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-morena-red/20 via-morena-surface to-morena-dark border border-morena-surface overflow-hidden flex flex-col items-center justify-center gap-6 p-8">
+              <span className="font-heading text-[7rem] sm:text-[9rem] leading-none text-morena-gold/30 select-none">
+                LM
+              </span>
+              <div className="text-center space-y-2">
+                <p className="font-heading text-xl text-white/80">Est. 2020</p>
+                <p className="text-neutral-500 text-sm max-w-[200px] mx-auto">
+                  Family-owned. Tradition-driven. Mexican candy, done right.
                 </p>
+              </div>
+              <div className="flex gap-3">
+                <div className="w-8 h-1 rounded-full bg-morena-red/60" />
+                <div className="w-8 h-1 rounded-full bg-morena-gold/40" />
+                <div className="w-8 h-1 rounded-full bg-morena-red/60" />
               </div>
             </div>
           </div>
