@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
+import { NavbarComponent as Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
 const cormorant = Cormorant_Garamond({
