@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { CssSparkles } from "@/components/ui/css-sparkles";
 
 const heritageStories = [
   {
@@ -32,17 +32,7 @@ export default function AboutPage() {
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <SparklesCore
-            background="transparent"
-            minSize={0.3}
-            maxSize={1}
-            particleDensity={25}
-            particleColor="#C5A55A"
-            speed={1}
-            className="w-full h-full"
-          />
-        </div>
+        <CssSparkles particleColor="#C5A55A" particleCount={25} />
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <p className="text-morena-gold font-body text-sm uppercase tracking-[0.3em] mb-4">
             Our Story

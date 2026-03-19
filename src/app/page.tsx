@@ -1,7 +1,7 @@
 "use client";
 
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { CssSparkles } from "@/components/ui/css-sparkles";
 import { FeaturesSectionWithHoverEffects } from "@/components/blocks/feature-section-with-hover-effects";
 import { TestimonialsSection } from "@/components/blocks/testimonials-with-marquee";
 import {
@@ -99,34 +99,27 @@ export default function Home() {
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
       <section className="bg-morena-dark">
-        {/* Video — object-fit contain, no cropping, full logo visible */}
-        <video
-          className="hidden md:block w-full max-h-[60vh] object-contain bg-morena-dark mx-auto"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* Video — full width edge to edge, object-contain, zero cropping */}
+        <div className="w-full bg-morena-dark hidden md:block">
+          <video
+            className="w-full object-contain"
+            style={{ maxHeight: "60vh", display: "block", background: "#0a0a0a" }}
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+        </div>
         {/* Mobile fallback */}
         <div className="md:hidden flex items-center justify-center h-[40vh] bg-morena-dark">
           <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
         </div>
 
-        {/* Hero text — flush below video, with sparkles */}
+        {/* Hero text — flush below video, with CSS sparkles (no canvas watermark) */}
         <div className="relative pb-16 sm:pb-24 pt-6 sm:pt-10 px-4 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <SparklesCore
-              background="transparent"
-              minSize={0.4}
-              maxSize={1.4}
-              particleDensity={40}
-              particleColor="#C5A55A"
-              speed={1.5}
-              className="w-full h-full"
-            />
-          </div>
+          <CssSparkles particleColor="#C5A55A" particleCount={40} />
 
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <p className="text-morena-gold font-body text-xs sm:text-sm uppercase tracking-[0.3em] mb-4">
