@@ -105,10 +105,10 @@ export default function Home() {
             playsInline
             poster=""
           >
-            {/* <source src="/hero-video.mp4" type="video/mp4" /> */}
+            <source src="/hero-video.mp4" type="video/mp4" />
           </video>
-          {/* Dark gradient placeholder until video is added */}
-          <div className="absolute inset-0 bg-gradient-to-b from-morena-dark via-morena-dark/60 to-morena-dark" />
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-morena-dark/70 via-morena-dark/50 to-morena-dark" />
         </div>
 
         {/* Sparkles overlay */}
