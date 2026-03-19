@@ -95,28 +95,24 @@ export default function Home() {
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
       <section className="relative min-h-[90vh] flex items-end overflow-hidden">
-        {/* Video background — visible on md+, hidden on mobile */}
-        <div className="absolute inset-0 z-0">
-          <video
-            className="hidden md:block w-full h-full object-cover object-center"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster=""
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-          {/* Static logo fallback for mobile */}
-          <div className="md:hidden absolute inset-0 bg-morena-dark flex items-center justify-center">
-            <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
-          </div>
+        {/* Layer 1: Video — full cover */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 hidden md:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="md:hidden absolute inset-0 z-0 bg-morena-dark flex items-center justify-center">
+          <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
         </div>
 
-        {/* Cinematic bottom gradient — transparent top, dark bottom */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-transparent via-[60%] to-morena-dark" />
+        {/* Layer 2: Single gradient overlay */}
+        <div className="absolute inset-0 z-[1]" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%)" }} />
 
-        {/* Sparkles overlay */}
+        {/* Sparkles */}
         <div className="absolute inset-0 z-[2]">
           <SparklesCore
             background="transparent"
@@ -129,17 +125,26 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero content — left-aligned at bottom, no panel */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20">
-          <p className="text-morena-gold font-body text-xs sm:text-sm uppercase tracking-[0.3em] mb-4">
+        {/* Layer 3: Text with text-shadow */}
+        <div className="relative z-10 w-full p-8 md:p-16">
+          <p
+            className="text-morena-gold font-body text-xs sm:text-sm uppercase tracking-[0.3em] mb-4"
+            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9)" }}
+          >
             Authentic Mexican Candy
           </p>
-          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-5">
+          <h1
+            className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-5"
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.7)" }}
+          >
             Dulcería
             <br />
             <span className="text-morena-gold">La Morena</span>
           </h1>
-          <p className="text-neutral-200 font-body text-lg sm:text-xl max-w-xl mb-8 leading-relaxed">
+          <p
+            className="text-neutral-200 font-body text-lg sm:text-xl max-w-xl mb-8 leading-relaxed"
+            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9)" }}
+          >
             A family-owned heritage brand bringing you the finest traditional
             Mexican dulces — from mazapán to cajeta, tamarindo to chamoy.
           </p>
