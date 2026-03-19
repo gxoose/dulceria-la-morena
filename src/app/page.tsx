@@ -94,27 +94,24 @@ export default function Home() {
   return (
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
-      {/* Part 1: Video — object-fit contain, no cropping, full logo visible */}
       <section className="bg-morena-dark">
-        <div className="w-full">
-          <video
-            className="hidden md:block w-full h-auto max-h-[70vh] object-contain bg-morena-dark mx-auto"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-          {/* Mobile fallback */}
-          <div className="md:hidden flex items-center justify-center h-[40vh] bg-morena-dark">
-            <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
-          </div>
+        {/* Video — object-fit contain, no cropping, full logo visible */}
+        <video
+          className="hidden md:block w-full max-h-[60vh] object-contain bg-morena-dark mx-auto"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        {/* Mobile fallback */}
+        <div className="md:hidden flex items-center justify-center h-[40vh] bg-morena-dark">
+          <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
         </div>
-      </section>
 
-      {/* Part 2: Hero text — below video, dark bg, centered */}
-      <section className="relative bg-morena-dark py-16 sm:py-24 px-4 overflow-hidden">
+        {/* Hero text — flush below video */}
+        <div className="relative pb-16 sm:pb-24 pt-6 sm:pt-10 px-4 overflow-hidden">
         {/* Sparkles overlay on text section */}
         <div className="absolute inset-0 z-0">
           <SparklesCore
@@ -158,6 +155,7 @@ export default function Home() {
               </button>
             </Link>
           </div>
+        </div>
         </div>
       </section>
 
