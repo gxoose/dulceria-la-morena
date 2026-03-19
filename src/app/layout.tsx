@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -30,7 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(cormorant.variable, outfit.variable)}>
       <body className="font-body antialiased bg-[#0a0a0a] text-white">
-        {children}
+        <Navbar />
+        <main className="pt-16 sm:pt-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );
