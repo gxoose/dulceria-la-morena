@@ -95,10 +95,10 @@ export default function Home() {
     <div className="bg-morena-dark">
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Video background slot — replace src with your MP4 */}
+        {/* Video background — visible on md+, hidden on mobile */}
         <div className="absolute inset-0 z-0">
           <video
-            className="w-full h-full object-cover opacity-30"
+            className="hidden md:block w-full h-full object-cover object-center"
             autoPlay
             muted
             loop
@@ -107,8 +107,12 @@ export default function Home() {
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
-          {/* Dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-morena-dark/70 via-morena-dark/50 to-morena-dark" />
+          {/* Static logo fallback for mobile */}
+          <div className="md:hidden absolute inset-0 bg-morena-dark flex items-center justify-center">
+            <span className="font-heading text-[8rem] font-bold text-morena-gold/15 select-none">LM</span>
+          </div>
+          {/* Light overlay — just enough to anchor text, not kill the video */}
+          <div className="absolute inset-0 bg-gradient-to-b from-morena-dark/30 via-transparent to-morena-dark/80" />
         </div>
 
         {/* Sparkles overlay */}
@@ -124,17 +128,17 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero content */}
+        {/* Hero content — text-shadow for readability over bright video */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <p className="text-morena-gold font-body text-sm uppercase tracking-[0.3em] mb-4">
+          <p className="text-morena-gold font-body text-sm uppercase tracking-[0.3em] mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Authentic Mexican Candy
           </p>
-          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6">
+          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             Dulcería
             <br />
             <span className="text-morena-gold">La Morena</span>
           </h1>
-          <p className="text-neutral-300 font-body text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-neutral-200 font-body text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             A family-owned heritage brand bringing you the finest traditional
             Mexican dulces — from mazapán to cajeta, tamarindo to chamoy.
             Taste the tradition.
